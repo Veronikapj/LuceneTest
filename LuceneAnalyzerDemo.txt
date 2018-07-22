@@ -1,0 +1,42 @@
+
+루씬 인 액션 4장 [루씬의 텍스트 분석]
+
+책의 루씬 버전이 3.0.1 
+현재 루씬 사용 버전 7.4.0
+
+책과 다르게 적용했던 점 정리.
+
+예제 분석결과
+
+"The quick brown for jumped over the laze dog.",
+"XY&Z Corporation - xyz@example.com"
+
+현재 코드에서 돌린 결과
+Analyzing :The quick brown for jumped over the laze dog.
+name : WhitespaceAnalyzer
+[The][quick][brown][for][jumped][over][the][laze][dog.]
+name : SimpleAnalyzer
+[the][quick][brown][for][jumped][over][the][laze][dog]
+name : StopAnalyzer
+[quick][brown][jumped][over][laze][dog]
+name : StandardAnalyzer
+[quick][brown][jumped][over][laze][dog]
+
+Analyzing :XY&Z Corporation - xyz@example.com
+name : WhitespaceAnalyzer
+[XY&Z][Corporation][-][xyz@example.com]
+name : SimpleAnalyzer
+[xy][z][corporation][xyz][example][com]
+name : StopAnalyzer
+[xy][z][corporation][xyz][example][com]
+name : StandardAnalyzer
+[xy][z][corporation][xyz][example.com]
+
+전체적으로 당연히 동일한데, 이메일이 포함되어 있는 
+"Analyzing :XY&Z Corporation - xyz@example.com" 문장을 StandardAnalyzer를 사용해서 분석한 결과가 달랐다.
+
+책에 나와 있는 분석 결과(Page 230)
+[xy&z][corporation][xyz@example.com]
+
+
+
