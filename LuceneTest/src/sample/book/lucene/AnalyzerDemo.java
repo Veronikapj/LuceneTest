@@ -32,6 +32,9 @@ public class AnalyzerDemo {
 		for(String text : strings) {
 			analyze(text);
 		}
+		
+		AnalyzerUtils.displayTokensWithFullDetails(new SimpleAnalyzer(), 
+				"The quick brown for jumped over the laze dog.");
 	}
 	
 	private static void analyze(String text) throws IOException {
